@@ -170,6 +170,9 @@ O projeto inclui Dockerfiles independentes e um `render.yaml`. Em produção, co
 
 Desenvolvido por **João Juvino** como demonstração de engenharia de software full-stack, arquitetura e cuidado com experiência de produto.
 
+- [GitHub](https://github.com/joao-juvino)
+- [Portfólio](https://joao-juvino.github.io)
+
 ## Licença
 
 Distribuído sob a licença MIT. Consulte [LICENSE](LICENSE) para mais informações.
