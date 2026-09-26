@@ -1,0 +1,47 @@
+<svg width="1200" height="440" viewBox="0 0 1200 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Juvino Tech</title>
+  <desc id="desc">Blog full-stack sobre engenharia de software, Java e arquitetura.</desc>
+  <defs>
+    <linearGradient id="bg" x1="84" y1="32" x2="1112" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11162A"/>
+      <stop offset="1" stop-color="#080B17"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="70" y1="70" x2="1090" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#655CFF"/>
+      <stop offset="1" stop-color="#25C7BC"/>
+    </linearGradient>
+    <filter id="blur" x="-120" y="-120" width="480" height="480" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="72"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="440" rx="32" fill="url(#bg)"/>
+  <circle cx="1110" cy="42" r="176" fill="#655CFF" fill-opacity=".25" filter="url(#blur)"/>
+  <circle cx="87" cy="432" r="150" fill="#25C7BC" fill-opacity=".18" filter="url(#blur)"/>
+  <path d="M0 1H1200V439H0V1Z" stroke="url(#brand)" stroke-opacity=".28" stroke-width="2"/>
+
+  <g transform="translate(70 75)">
+    <rect width="52" height="52" rx="14" fill="url(#brand)"/>
+    <path d="M18 15V30.5C18 35.1944 21.8056 39 26.5 39C31.1944 39 35 35.1944 35 30.5V15" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <text x="0" y="119" fill="white" font-family="Inter,Arial,sans-serif" font-size="66" font-weight="800" letter-spacing="-2">Juvino Tech</text>
+    <text x="2" y="166" fill="#AEB7D0" font-family="Inter,Arial,sans-serif" font-size="23">Engenharia de software explicada com clareza.</text>
+    <g transform="translate(0 207)" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="600">
+      <rect width="94" height="38" rx="19" fill="#202841"/><text x="19" y="24" fill="#DDE3F3">Angular</text>
+      <rect x="108" width="120" height="38" rx="19" fill="#202841"/><text x="127" y="24" fill="#DDE3F3">Spring Boot</text>
+      <rect x="242" width="118" height="38" rx="19" fill="#202841"/><text x="261" y="24" fill="#DDE3F3">PostgreSQL</text>
+    </g>
+  </g>
+
+  <g transform="translate(727 72)">
+    <rect width="402" height="294" rx="22" fill="#11172B" stroke="#303A58"/>
+    <circle cx="28" cy="27" r="5" fill="#FF6B72"/><circle cx="46" cy="27" r="5" fill="#F6C85F"/><circle cx="64" cy="27" r="5" fill="#53D69B"/>
+    <path d="M24 54H378" stroke="#303A58"/>
+    <g font-family="ui-monospace,SFMono-Regular,Consolas,monospace" font-size="17">
+      <text x="27" y="91" fill="#AEB7D0">public</text><text x="85" y="91" fill="#C792EA">record</text><text x="152" y="91" fill="#82AAFF">Article</text><text x="221" y="91" fill="#DDE3F3">(</text>
+      <text x="48" y="125" fill="#89DDFF">String</text><text x="111" y="125" fill="#DDE3F3">title,</text>
+      <text x="48" y="159" fill="#89DDFF">String</text><text x="111" y="159" fill="#DDE3F3">content,</text>
+      <text x="48" y="193" fill="#89DDFF">Set&lt;Tag&gt;</text><text x="143" y="193" fill="#DDE3F3">tags</text>
+      <text x="27" y="227" fill="#DDE3F3">) {</text>
+      <text x="48" y="261" fill="#C3E88D">// conhecimento que escala</text>
+    </g>
+  </g>
+</svg>
