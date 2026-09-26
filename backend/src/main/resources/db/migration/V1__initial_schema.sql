@@ -1,0 +1,32 @@
+CREATE TABLE users (
+  id BIGSERIAL PRIMARY KEY, name VARCHAR(120) NOT NULL, email VARCHAR(180) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL, role VARCHAR(30) NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE TABLE categories (
+  id BIGSERIAL PRIMARY KEY, name VARCHAR(80) NOT NULL UNIQUE, slug VARCHAR(100) NOT NULL UNIQUE
+);
+CREATE TABLE tags (
+  id BIGSERIAL PRIMARY KEY, name VARCHAR(80) NOT NULL UNIQUE, slug VARCHAR(100) NOT NULL UNIQUE
+);
+CREATE TABLE projects (
+  id BIGSERIAL PRIMARY KEY, name VARCHAR(120) NOT NULL, slug VARCHAR(140) NOT NULL UNIQUE,
+  description VARCHAR(600) NOT NULL, image_url VARCHAR(500), github_url VARCHAR(500), demo_url VARCHAR(500),
+  technologies VARCHAR(500) NOT NULL DEFAULT ''
+);
+CREATE TABLE posts (
+  id BIGSERIAL PRIMARY KEY, title VARCHAR(180) NOT NULL, slug VARCHAR(220) NOT NULL UNIQUE,
+  summary VARCHAR(400) NOT NULL, content TEXT NOT NULL, cover_image_url VARCHAR(500),
+  status VARCHAR(20) NOT NULL, featured BOOLEAN NOT NULL DEFAULT FALSE,
+  category_id BIGINT REFERENCES categories(id), project_id BIGINT REFERENCES projects(id) ON DELETE SET NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  published_at TIMESTAMPTZ, reading_time INTEGER NOT NULL DEFAULT 1
+);
+CREATE TABLE posts_tags (
+  post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+  tag_id BIGINT NOT NULL REFERENCES tags(id) ON DELETE CASCADE,
+  PRIMARY KEY(post_id, tag_id)
+);
+CREATE INDEX idx_posts_status_published ON posts(status, published_at DESC);
+CREATE INDEX idx_posts_category ON posts(category_id);
+CREATE INDEX idx_posts_title_lower ON posts(LOWER(title));

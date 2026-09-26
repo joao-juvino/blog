@@ -1,0 +1,6 @@
+spring:
+  jpa.show-sql: false
+  flyway.locations: classpath:db/migration
+logging.level.root: WARN
+springdoc.swagger-ui.enabled: false
+springdoc.api-docs.enabled: false

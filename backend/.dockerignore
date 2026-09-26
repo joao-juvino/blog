@@ -1,0 +1,5 @@
+target
+.mvn-cache
+.git
+*.log
+README.md
