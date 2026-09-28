@@ -76,7 +76,7 @@ interface ArticleHeading {
             }
           </aside>
 
-          <div>
+          <div class="article-body">
             <app-markdown [content]="article.content" />
 
             @if (article.project) {
@@ -118,18 +118,22 @@ interface ArticleHeading {
     }
   `,
   styles: [`
+    :host{display:block;max-width:100%;overflow-x:clip}
+    article{max-width:100%;overflow-x:clip}
     .article-head{padding:85px 0 55px;text-align:center;background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--brand),transparent 84%),transparent 45%)}
     .article-head h1{font-size:clamp(2.6rem,6vw,5rem)}
     .summary{font-size:1.2rem;color:var(--muted)}
     .byline{display:flex;justify-content:center;align-items:center;gap:12px;margin:28px 0}
-    .byline>div:last-child{display:grid;text-align:left}
+    .byline>div:last-child{display:grid;text-align:left;min-width:0}
     .byline span{font-size:.82rem;color:var(--muted)}
-    .avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--text);color:var(--bg);font-weight:800}
+    .avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--text);color:var(--bg);font-weight:800;flex:0 0 44px}
     .article-head .pill-row{justify-content:center}
     .cover{border-radius:24px;overflow:hidden;max-width:1120px;padding:0;background:#0d1828;box-shadow:0 22px 55px rgba(15,23,42,.12)}
     .cover img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
-    .article-layout{display:grid;grid-template-columns:210px minmax(0,780px);justify-content:center;gap:50px;padding-top:60px}
-    .toc{position:sticky;top:100px;align-self:start;display:grid;gap:4px;border-left:1px solid var(--line);padding-left:18px;font-size:.84rem}
+    .article-layout{display:grid;grid-template-columns:210px minmax(0,780px);justify-content:center;gap:50px;padding-top:60px;min-width:0;max-width:100%}
+    .article-body{min-width:0;width:100%;max-width:780px}
+    .article-body app-markdown{display:block;min-width:0;max-width:100%}
+    .toc{position:sticky;top:100px;align-self:start;display:grid;gap:4px;border-left:1px solid var(--line);padding-left:18px;font-size:.84rem;min-width:0}
     .toc strong{margin-bottom:7px}
     .toc button{appearance:none;border:0;background:transparent;color:var(--muted);cursor:pointer;padding:4px 0;text-align:left;line-height:1.5;transition:color .18s,transform .18s}
     .toc button:hover{color:var(--brand);transform:translateX(3px)}
@@ -139,7 +143,22 @@ interface ArticleHeading {
     .links{display:flex;gap:10px;margin-top:20px}
     .hero-skel{height:330px}
     .body-skel{height:500px;margin-top:30px}
-    @media(max-width:900px){.article-layout{grid-template-columns:1fr}.toc{display:none}.cover{border-radius:18px}}
+    @media(max-width:900px){
+      .article-layout{grid-template-columns:minmax(0,1fr);justify-content:stretch;gap:0}
+      .article-body{max-width:100%}
+      .toc{display:none}
+      .cover{border-radius:18px}
+    }
+    @media(max-width:640px){
+      .article-head{padding:48px 0 34px}
+      .article-head h1{font-size:clamp(2rem,10vw,2.7rem);overflow-wrap:anywhere}
+      .summary{font-size:1rem}
+      .byline{align-items:flex-start}
+      .byline span{line-height:1.45}
+      .cover{width:calc(100% - 28px);max-width:calc(100% - 28px)}
+      .article-layout{width:calc(100% - 28px);max-width:calc(100% - 28px);padding-top:38px;margin-inline:auto}
+      .article-body{width:100%;min-width:0;max-width:100%;overflow:visible}
+    }
   `]
 })
 export class ArticleComponent {
