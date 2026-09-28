@@ -126,8 +126,8 @@ interface ArticleHeading {
     .byline span{font-size:.82rem;color:var(--muted)}
     .avatar{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--text);color:var(--bg);font-weight:800}
     .article-head .pill-row{justify-content:center}
-    .cover{border-radius:24px;overflow:hidden;max-height:580px}
-    .cover img{width:100%;height:100%;object-fit:cover}
+    .cover{border-radius:24px;overflow:hidden;max-width:1120px;padding:0;background:#0d1828;box-shadow:0 22px 55px rgba(15,23,42,.12)}
+    .cover img{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
     .article-layout{display:grid;grid-template-columns:210px minmax(0,780px);justify-content:center;gap:50px;padding-top:60px}
     .toc{position:sticky;top:100px;align-self:start;display:grid;gap:4px;border-left:1px solid var(--line);padding-left:18px;font-size:.84rem}
     .toc strong{margin-bottom:7px}
@@ -139,7 +139,7 @@ interface ArticleHeading {
     .links{display:flex;gap:10px;margin-top:20px}
     .hero-skel{height:330px}
     .body-skel{height:500px;margin-top:30px}
-    @media(max-width:900px){.article-layout{grid-template-columns:1fr}.toc{display:none}}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr}.toc{display:none}.cover{border-radius:18px}}
   `]
 })
 export class ArticleComponent {
