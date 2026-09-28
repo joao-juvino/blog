@@ -16,12 +16,22 @@ services:
         sync: false
       - key: JWT_SECRET
         generateValue: true
+      - key: JWT_EXPIRATION_MS
+        value: 3600000
       - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: ADMIN_NAME
         sync: false
       - key: ADMIN_EMAIL
         sync: false
       - key: ADMIN_PASSWORD
         sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        value: blog-images
   - type: web
     name: juvino-tech
     runtime: static
